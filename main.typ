@@ -3,6 +3,7 @@
 
 #show: odborna-prace.with(
   meta: meta,
+  // koncept: "KONCEPT",   // vodoznak, dokud je text rozpracovaný
   // Volitelné úpravy dle požadavků školy:
   // logo: "/img/logo.png",
   // pismo: "Times New Roman",
