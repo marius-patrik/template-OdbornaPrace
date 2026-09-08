@@ -1,4 +1,5 @@
 TYPST ?= typst
+FONTS := --font-path fonts
 MAIN  := main.typ
 OUT   := out/prace.pdf
 
@@ -13,19 +14,19 @@ help:
 
 build:
 	@mkdir -p $(dir $(OUT))
-	$(TYPST) compile $(MAIN) $(OUT)
+	$(TYPST) compile $(FONTS) $(MAIN) $(OUT)
 	@echo "Hotovo: $(OUT)"
 
 watch:
 	@mkdir -p $(dir $(OUT))
-	$(TYPST) watch $(MAIN) $(OUT)
+	$(TYPST) watch $(FONTS) $(MAIN) $(OUT)
 
 png:
 	@mkdir -p out/pages
-	$(TYPST) compile $(MAIN) "out/pages/strana-{0p}.png" --ppi 150
+	$(TYPST) compile $(FONTS) $(MAIN) "out/pages/strana-{0p}.png" --ppi 150
 
 check:
-	$(TYPST) compile $(MAIN) --format pdf /dev/stdout > /dev/null
+	$(TYPST) compile $(FONTS) $(MAIN) --format pdf /dev/stdout > /dev/null
 
 clean:
 	rm -rf out
